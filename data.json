@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "Aarav Sen",
+    "email": "aarav.sen@example.com",
+    "age": 28,
+    "isActive": true,
+    "role": "admin",
+    "joinedDate": "2023-04-15",
+    "preferences": {
+      "theme": "dark",
+      "notifications": true
+    }
+  },
+  {
+    "id": 2,
+    "name": "Meera Das",
+    "email": "meera.das@example.com",
+    "age": 34,
+    "isActive": false,
+    "role": "editor",
+    "joinedDate": "2022-11-03",
+    "preferences": {
+      "theme": "light",
+      "notifications": false
+    }
+  },
+  {
+    "id": 3,
+    "name": "Rohan Gupta",
+    "email": "rohan.gupta@example.com",
+    "age": 22,
+    "isActive": true,
+    "role": "viewer",
+    "joinedDate": "2024-01-20",
+    "preferences": {
+      "theme": "dark",
+      "notifications": true
+    }
+  }
+]
