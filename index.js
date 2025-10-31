@@ -1,41 +1,25 @@
-const express = require("express");
-const users = require("./data.json");
+const express = require('express')
+const path = require('path')
+const app = express()
+const port = 3000
 
-const app = express();
-const PORT = 8000;
+app.use(express.static(path.join(__dirname, "public")))
 
-// Route to get all users
-app.get('/users', (req, res) => {
-    res.json(users);
-});
-
-// Route to get a user by ID
-app.get("/api/users/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const user = users.find(user => user.id === id);
-
-    if (!user) {
-        return res.status(404).json({ error: "User not found" });
-    }
-
-    res.json(user);
-});
-
-app.post('api/users', (req, res) => {
-    res.json({status : "pending"});
-});
-
-app.patch('api/users/:id', (req, res) => {
-    // too edit the usser with id
-    res.json({status : "pending"});
-});
-
-app.delete('api/users/:id', (req, res) => {
-    // too delete the usser with id
-    res.json({status : "pending"});
-});
+// Optional: fallback route if index.html isn't found
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 
 
-// Start the server
-app.listen(PORT, () => console.log(`🚀 Server started at http://localhost:${PORT}`));
+// app.get('/', (req, res) => {
+// //   res.send('Hello World!')
+// })
+
+// app.get('/', (req, res) => {
+// //   res.sendFile(Path.join(__dirname, 'index.html'))
+// })
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
