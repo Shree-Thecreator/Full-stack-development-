@@ -1,25 +1,24 @@
 const express = require('express')
-const path = require('path')
 const app = express()
 const port = 3000
 
-app.use(express.static(path.join(__dirname, "public")))
+app.set('view engine', 'ejs');
 
-// Optional: fallback route if index.html isn't found
+// https://github.com/mde/ejs/wiki/Using-EJS-with-Express
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    let siteName = "Adidas"
+    let searchText = "Search Now"
+    let arr = ["Hey", 54, 65]
+    res.render("index", { siteName: siteName, searchText: searchText, arr })
 })
 
-
-
-// app.get('/', (req, res) => {
-// //   res.send('Hello World!')
-// })
-
-// app.get('/', (req, res) => {
-// //   res.sendFile(Path.join(__dirname, 'index.html'))
-// })
+app.get('/blog/:slug', (req, res) => {
+    let blogTitle = "Adidas why and when?"
+    let blogContent = "Its a very good brand"
+    res.render("blogpost", {blogTitle: blogTitle, blogContent: blogContent})
+})
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`)
 })
