@@ -1,0 +1,19 @@
+An Express application can use the following types of middleware:
+
+Application-level middleware
+Router-level middleware
+Error-handling middleware
+Built-in middleware
+Third-party middleware
+
+
+Application level middleware:
+const express = require('express')
+const app = express()
+
+app.use((req, res, next) => {
+  console.log('Time:', Date.now())
+  next()
+})
+
+https://expressjs.com/en/guide/using-middleware.html
